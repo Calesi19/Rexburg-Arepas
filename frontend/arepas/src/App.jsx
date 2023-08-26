@@ -87,7 +87,7 @@ function About() {
       <div className='flex flex-col gap-5'>
        
 
-        <img src="./src/assets/arepas3.jpeg" alt="Arepas" className='rounded-[50px]' />
+        <img src="https://github.com/Calesi19/Rexburg-Arepas/blob/main/frontend/arepas/src/assets/arepas3.jpeg?raw=true" alt="Arepas" className='rounded-[50px]' />
         <h3 className='text-black text-2xl font-[slackey]'>
         Delivered Fresh, Packed with Flavors
         </h3>
@@ -101,7 +101,7 @@ function About() {
       <div className='flex flex-col gap-5'>
        
 
-        <img src="/src/assets/arepas4.jpeg" alt="Arepas" className='rounded-[50px] aspect-square object-cover rounded-tl-[200px]' />
+        <img src="https://github.com/Calesi19/Rexburg-Arepas/blob/main/frontend/arepas/src/assets/arepas4.jpeg?raw=true" alt="Arepas" className='rounded-[50px] aspect-square object-cover rounded-tl-[200px]' />
         <h3 className='text-black text-2xl font-[slackey]'>
         Delivered Fresh, Packed with Flavors
         </h3>
