@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+</head>
+
+<body class="p-0 m-0 flex-col h-screen max-h-screen bg-offwhite overflow-auto">
+
+
+    <header class="flex items-center justify-between p-2 bg-slate-200">
+        <h1 class="font-bold text-3xl mx-4">
+            Dashboard
+        </h1>
+
+
+        <div class="flex items-center gap-3">
+
+            <div class="h-[40px] w-[50px] bg-white rounded-lg overflow-hidden border-solid border-2">
+                <div class="text-center bg-red-400 text-xs">
+                    Aug
+                </div>
+                <div class="text-center text-sm">
+                    8
+                </div>
+
+            </div>
+
+            <a href="#"><button class="py-2 px-4 bg-slate-300 rounded-md shadow-lg hover:bg-slate-200 active:bg-slate-50">
+                    Visit Site
+                </button></a>
+        </div>
+    </header>
+
+    <div class="w-full p-2">
+        <div class="radio-inputs lg:hidden bg-slate-200 w-full">
+            <label class="radio">
+                <input class="radio-selector" type="radio" name="radio" checked="">
+                <span class="name">Today</span>
+            </label>
+            <label class="radio">
+                <input class="radio-selector" type="radio" name="radio">
+                <span class="name">Upcoming</span>
+            </label>
+
+            <label class="radio">
+                <input class="radio-selector" type="radio" name="radio">
+                <span class="name">Past</span>
+            </label>
+        </div>
+    </div>
+
+
+
+    <main class="flex lg:grid grid-cols-3 gap-10 grow p-5 h-[calc(100%-80px)]">
+
+        <div id="today-orders" class="lg:flex flex-col w-full">
+            <h2 class="px-3 font-bold text-xl">Today's Orders</h2>
+
+            <div id="today-orders-list" class=" lg:flex flex-col px-3 scroll-y">
+
+
+
+
+
+
+
+
+
+                
+                <div class="px-10 py-5 my-5 w-full bg-white rounded-2xl shadow-xl">
+                    <div class="flex flex-col justify-between">
+                        <div class="flex justify-between">
+                            <h3 class="font-bold text-3xl">Julia</h3>
+                            <div class="font-bold text-3xl">6 PM</div>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <div>787-988-9447</div>
+                            <div>August 8</div>
+                        </div>
+                    </div>
+                    <div class="py-3 h-[130px] flex flex-col justify-center">
+
+                        <div class="text-xl">1 x <span class="font-bold">Chicken & Salsa</span></div>
+                        <div class="text-xl">1 x <span class="font-bold">Salsa</span></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+
+                        <div>
+                            
+                            <span class="font-bold text-2xl py-3">$<span class="order-price">54</span> </span>
+                        </div>
+                        
+
+                        <div class="flex gap-2 items-center">
+                            <div class="status"> Incomplete</div>
+
+                            <div class="checkbox-wrapper-31">
+                                <input checked="" type="checkbox">
+                                <svg viewBox="0 0 35.6 35.6">
+                                    <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                    <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                    <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                </svg>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="h-[400px]">
+                    <!-- This is a spacer added at the bottom of each column.-->
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div id="future-orders" class="hidden lg:flex flex-col">
+            <h2 class="px-3 font-bold text-xl">Upcoming Orders</h2>
+            <div id="future-orders-list" class="lg:flex flex-col px-3 scroll-y">
+
+
+                <div class="px-10 py-5 my-5 w-full bg-blue-50 rounded-2xl shadow-xl">
+                    <div class="flex flex-col justify-between">
+                        <div class="flex justify-between">
+                            <h3 class="font-bold text-3xl">Carlos</h3>
+                            <div class="font-bold text-3xl">8 PM</div>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <div>787-988-9447</div>
+                            <div>August 10</div>
+                        </div>
+                    </div>
+                    <div class="py-3 h-[130px] flex flex-col justify-center">
+                        <div class="text-xl">1 x <span class="font-bold">Chicken</span></div>
+                        <div class="text-xl">1 x <span class="font-bold">Plain</span></div>
+                        <div class="text-xl">1 x <span class="font-bold">Chicken & Salsa</span></div>
+                        <div class="text-xl">1 x <span class="font-bold">Salsa</span></div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="font-bold text-2xl py-3">Price: $54</div>
+                        <button class="bg-green-200 p-3 rounded-md flex items-center active:bg-green-100 shadow-button">
+                            <img src="checkmark.png" alt="Check Mark" class="h-5 mr-2">
+                            Mark Complete</button>
+                    </div>
+                </div>
+
+
+                <div class="h-[400px]">
+                    <!-- This is a spacer added at the bottom of each column.-->
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="past-orders" class="hidden lg:flex flex-col">
+            <h2 class="px-3 font-bold text-xl">Past Orders</h2>
+            <div id="past-orders-list" class="lg:flex px-3 flex-col scroll-y">
+
+
+                <div class="px-10 py-5 my-5 w-full bg-green-50 rounded-2xl shadow-xl">
+                    <div class="flex flex-col justify-between">
+                        <div class="flex justify-between">
+                            <h3 class="font-bold text-3xl">Yeram</h3>
+                            <div class="font-bold text-3xl">7 PM</div>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <div>787-988-9447</div>
+                            <div>August 8</div>
+                        </div>
+                    </div>
+                    <div class="py-3 h-[130px] flex flex-col justify-center">
+
+                        <div class="text-xl">1 x <span class="font-bold">Salsa</span></div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="font-bold text-2xl py-3">Price: $54</div>
+                        <button class="bg-green-200 p-3 rounded-md flex items-center active:bg-green-100 shadow-button">
+                            <img src="checkmark.png" alt="Check Mark" class="h-5 mr-2">
+                            Mark Complete</button>
+                    </div>
+                </div>
+
+
+
+
+                <div class="px-10 py-5 my-5 w-full bg-green-50 rounded-2xl shadow-xl">
+                    <div class="flex flex-col justify-between">
+                        <div class="flex justify-between">
+                            <h3 class="font-bold text-3xl">Emma</h3>
+                            <div class="font-bold text-3xl">7 PM</div>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <div>787-988-9447</div>
+                            <div>August 7</div>
+                        </div>
+                    </div>
+                    <div class="py-3 h-[130px] flex flex-col justify-center">
+
+                        <div class="text-xl">1 x <span class="font-bold">Chicken & Salsa</span></div>
+
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="font-bold text-2xl py-3">Price: $54</div>
+                        <button class="bg-green-200 p-3 rounded-md flex items-center active:bg-green-100 shadow-button">
+                            <img src="checkmark.png" alt="Check Mark" class="h-5 mr-2">
+                            Mark Complete</button>
+                    </div>
+                </div>
+
+
+
+                <div class="px-10 py-5 my-5 w-full bg-red-50 rounded-2xl shadow-xl">
+                    <div class="flex flex-col justify-between">
+                        <div class="flex justify-between">
+                            <h3 class="font-bold text-3xl">Dulce</h3>
+                            <div class="font-bold text-3xl">8 PM</div>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <div>787-988-9447</div>
+                            <div>August 2</div>
+                        </div>
+                    </div>
+                    <div class="py-3 h-[130px] flex flex-col justify-center">
+
+                        <div class="text-xl">1 x <span class="font-bold">Plain</span></div>
+                        <div class="text-xl">1 x <span class="font-bold">Chicken & Salsa</span></div>
+                        <div class="text-xl">1 x <span class="font-bold">Salsa</span></div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="font-bold text-2xl py-3">Price: $54</div>
+                        <button class="bg-blue-50 p-3 rounded-md flex items-center active:bg-green-100 shadow-button">
+                            <img src="checkmark.png" alt="Check Mark" class="h-5 mr-2">
+                            Mark Complete</button>
+                    </div>
+                </div>
+
+
+
+                <div class="h-[400px]">
+                    <!-- This is a spacer added at the bottom of each column.-->
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let radios = document.querySelectorAll('.radio-selector');
+            let todayOrders = document.getElementById('today-orders');
+            let futureOrders = document.getElementById('future-orders');
+            let pastOrders = document.getElementById('past-orders');
+
+            radios.forEach(function (radio) {
+                radio.addEventListener('change', function () {
+                    todayOrders.classList.add('hidden');
+                    futureOrders.classList.add('hidden');
+                    pastOrders.classList.add('hidden');
+
+                    if (radio.nextElementSibling.textContent.trim() === 'Today') {
+                        todayOrders.classList.remove('hidden');
+                    } else if (radio.nextElementSibling.textContent.trim() === 'Upcoming') {
+                        futureOrders.classList.remove('hidden');
+                    } else if (radio.nextElementSibling.textContent.trim() === 'Past') {
+                        pastOrders.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+<!-- Place this script right before the closing </body> tag -->
+
+
+
+
+</html>
