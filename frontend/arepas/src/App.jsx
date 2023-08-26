@@ -87,7 +87,7 @@ function About() {
       <div className='flex flex-col gap-5'>
        
 
-        <img src="/src/assets/arepas3.jpeg" alt="Arepas" className='rounded-[50px]' />
+        <img src="./src/assets/arepas3.jpeg" alt="Arepas" className='rounded-[50px]' />
         <h3 className='text-black text-2xl font-[slackey]'>
         Delivered Fresh, Packed with Flavors
         </h3>
