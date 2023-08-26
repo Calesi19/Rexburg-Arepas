@@ -66,12 +66,21 @@ function Hero() {
           </button>
         </div>
 
-        <div className="mt-5 w-full bg-green-500">
-          <div className="flex grid-cols-2 col-auto w-full">
-            <img src="./src/assets/arepa.jpeg" alt="Arepas" className="w-1/3" />
-            <img src="./src/assets/arepa.jpeg" alt="Arepas" className="w-1/3" />
+        <div className="mt-5 flex flex-row gap-5 max-h-[600px] max-w-[600px]">
+          <div className="flex flex-col gap-5 w-1/2">
+            <img src="src/assets/arepa-with-salsa.jpeg" alt="Arepas" className="aspect-square object-cover rounded-tr-full h-1/2" />
+            <div className="bg-white h-1/2 aspect-square object-cover rounded-full rounded-br-[0px]"></div>
           </div>
+          
+          <div className="w-1/2">
+            <img src="src/assets/arepa.jpeg" alt="Arepas" className="h-full object-cover"/>
+          </div>
+
+
         </div>
+
+
+
       </div>
     </div>
   );
