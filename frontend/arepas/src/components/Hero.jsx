@@ -60,7 +60,7 @@ function Hero() {
         <div className="mt-5 flex flex-row gap-5 lg:w-1/3 max-h-[600px] max-w-[600px]">
           <div className="flex flex-col gap-5 w-1/2">
             <img
-              src="src/assets/arepa-with-salsa.jpeg"
+              src="https://github.com/Calesi19/Rexburg-Arepas/blob/main/frontend/arepas/src/assets/arepa-with-salsa.jpeg?raw=true"
               alt="Arepas"
               className="aspect-square object-cover rounded-tr-full h-1/2"
             />
@@ -69,7 +69,7 @@ function Hero() {
 
           <div className="w-1/2">
             <img
-              src="src/assets/arepa.jpeg"
+              src="https://github.com/Calesi19/Rexburg-Arepas/blob/main/frontend/arepas/src/assets/arepa.jpeg?raw=true"
               alt="Arepas"
               className="h-full object-cover"
             />
