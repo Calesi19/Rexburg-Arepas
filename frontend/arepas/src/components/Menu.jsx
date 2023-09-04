@@ -162,7 +162,7 @@ const Menu = () => {
         </label>
 
         <input
-          className="xs:w-full p-4 text-black bg-slate-100 rounded-lg border-none transition-[.3s] hover:shadow-2xl"
+          className="w-full p-4 text-black bg-slate-100 rounded-lg border-none transition-[.3s]"
           type="text"
           placeholder="Juan Doe"
           value={name}
@@ -171,29 +171,29 @@ const Menu = () => {
         />
 
         <br />
-
+        <br />              
         <label>
           Phone Number:
           <br />
         </label>
         <input
-          className="p-4 text-black bg-slate-100 rounded-lg border-none transition-[.3s] hover:shadow-2xl"
+          className="w-full p-4 text-black bg-slate-100 rounded-lg border-none transition-[.3s]"
           type="tel"
           value={phone}
           placeholder="248-434-5508"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          pattern="[0-9]{10}"
           onChange={(e) => setPhone(e.target.value)}
           required
         />
       </div>
-
+      <br />
       <div>
-        {/* Your other form components here */}
+        
         <label
           className="text-black">
           Pickup Date and Time:</label><br></br>
         <DatePicker
-          className="p-4 text-black bg-slate-100 rounded-lg border-none transition-[.3s] hover:shadow-2xl"
+          className="w-full p-4 text-black bg-slate-100 rounded-lg border-none transition-[.3s] hover:shadow-2xl"
           required={true}
           selected={pickupDate}
           onChange={(date) => setPickupDate(date)}
@@ -214,6 +214,7 @@ const Menu = () => {
         <br />
 
         <div>
+
           <input
             type="checkbox"
             id="pickup-checkbox"
@@ -230,7 +231,7 @@ const Menu = () => {
         <br />
 
         <input
-          className="font-bold bg-[#f3f7fe] text-[18pt] text-[#3b82f6] rounded-lg border-none p-4 transition-[.3s] hover:bg-[#3b82f6] hover:text-white hover:shadow-[#ceff92] hover:shadow-2xl"
+          className="w-full font-bold bg-[#f3f7fe] text-[18pt] text-[#3b82f6] rounded-lg border-none p-4 transition-[.3s] hover:bg-[#3b82f6] hover:text-white hover:shadow-[#ceff92] hover:shadow-2xl"
           id="submit-button" type="submit" value="Submit Order" />
       </div>
     </form>

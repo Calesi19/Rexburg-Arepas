@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import SectionBreak from "./components/SectionBreak";
 import Menu from "./components/Menu";
+import Contact from "./components/Contact";
 
 
 
@@ -18,6 +19,7 @@ function App() {
       <About />
       <Footer />
       <Menu />
+      <Contact />
       
     </>
   );
