@@ -4,7 +4,7 @@ import ConstructionBanner from "./components/ConstructionBanner";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import SectionBreak from "./components/SectionBreak";
-
+import Menu from "./components/Menu";
 
 
 
@@ -17,6 +17,7 @@ function App() {
       <SectionBreak />
       <About />
       <Footer />
+      <Menu />
       
     </>
   );

@@ -1,6 +1,7 @@
 function Hero() {
   return (
     <div className="bg-white">
+
       <div className="bg-[#F0C808] min-h-[400px] p-5 flex flex-col md:flex-row md:justify-center md:items-center ">
         <div className="flex flex-col md:w-1/2">
           <div className=" text-[#a40e4c6d] font-[slackey] text-5xl">
@@ -55,10 +56,10 @@ function Hero() {
 
         
 
+        {/* 
 
-
-        <div className="mt-5 flex flex-row gap-5 lg:w-1/3 max-h-[600px] max-w-[600px]">
-          <div className="flex flex-col gap-5 w-1/2">
+        <div className="mt-5 flex flex-row lg:w-1/3 max-h-[600px] aspect-square w-full max-w-[600px]">
+          <div className="flex flex-col w-1/2">
             <img
               src="https://github.com/Calesi19/Rexburg-Arepas/blob/main/frontend/arepas/src/assets/arepa-with-salsa.jpeg?raw=true"
               alt="Arepas"
@@ -75,6 +76,9 @@ function Hero() {
             />
           </div>
         </div>
+
+*/  }
+        
       </div>
     </div>
   );
