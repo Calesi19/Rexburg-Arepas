@@ -4,9 +4,16 @@ function Hero() {
 
       <div className="bg-[#F0C808] min-h-[400px] p-5 flex flex-col md:flex-row md:justify-center md:items-center ">
         <div className="flex flex-col md:w-1/2">
+
+          <div className="flex items-center">
+          
           <div className=" text-[#a40e4c6d] font-[slackey] text-5xl">
             Colombian Arepas in Rexburg
+            </div>
+           
+
           </div>
+          
 
           <div className="flex flex-col md:flex-row md:gap-5">
 

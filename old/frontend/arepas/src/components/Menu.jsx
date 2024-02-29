@@ -98,7 +98,15 @@ const Menu = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (totalItems <= 4) {
-      console.log({ name, phone, counters });
+      console.log({ name, phone });
+      console.log(pickupDate.toISOString());
+      const orderData = {
+      name,
+      phone,
+      counters,
+      pickupDate: pickupDate ? pickupDate.toISOString() : null, // Convert the date to a string.
+    };
+
     } else {
       alert("The total of all counters cannot exceed 4.");
     }

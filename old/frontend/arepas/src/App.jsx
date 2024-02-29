@@ -1,4 +1,5 @@
 import "./App.css";
+import Header from "./components/Header";
 import Hero from "./components/Hero";
 import ConstructionBanner from "./components/ConstructionBanner";
 import Footer from "./components/Footer";
@@ -13,7 +14,8 @@ import Contact from "./components/Contact";
 function App() {
   return (
     <>
-      <ConstructionBanner />
+      {/*<ConstructionBanner />*/}
+      <Header />
       <Hero />
       <SectionBreak />
       <About />
