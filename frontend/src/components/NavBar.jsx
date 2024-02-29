@@ -14,10 +14,10 @@ export default function NavBar() {
           <h1 className="ml-5 font-bold">Rexburg Arepas</h1>
         </div>
         <nav className="flex items-center gap-8">
-          <a href="#" class="hidden md:block link link-hover">
+          <a href="#" class="link-hover link hidden md:block">
             About
           </a>
-          <a href="#" class="hidden md:block link link-hover">
+          <a href="#" class="link-hover link hidden md:block">
             Pick Up
           </a>
           <a href="#">
