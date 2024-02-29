@@ -5,10 +5,8 @@ export default function Ingredients() {
         <div className="flex flex-col justify-center md:w-[40%] md:px-10 ">
           <h2 className="text-3xl">We make them with love.</h2>
           <p className="py-6">
-            Arepas are a staple of Colombian cuisine. They are a type of food
-            made of ground maize dough, originating from the northern region of
-            South America in pre-Columbian times, and are notable in the
-            cuisines of Colombia and Venezuela.
+            Our arepas are made with the best ingredients. We make them fresh
+            every day with the best cornmeal, mozzarella cheese, and butter.
           </p>
         </div>
         <div className="grid grid-cols-3 justify-between gap-2 md:flex md:h-[200px] md:w-[60%]">

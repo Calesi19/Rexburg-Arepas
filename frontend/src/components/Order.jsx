@@ -42,7 +42,7 @@ export default function OrderCreation() {
               className="flex min-h-[100px] flex-col justify-center"
             >
               {Object.keys(order).length === 0 ? (
-                "No Items. Add some to your cart."
+                "Empty Cart"
               ) : (
                 <ul>
                   {Object.values(order).map((item) => (
@@ -115,7 +115,7 @@ function Card({ item, updateOrder }) {
   return (
     <div className="flex flex-col items-center justify-center gap-4 rounded-2xl bg-white p-8 shadow-md">
       <img src={item.image} alt={item.name} />
-      <span className="absolute flex h-[50px] w-[75px] -translate-x-[75px] transform items-center justify-center rounded-lg bg-[#002E83] text-white ">
+      <span className="absolute flex h-[50px] w-[75px] -translate-x-[75px] transform items-center justify-center rounded-lg bg-[#002E83] text-white font-black text-xl ">
         ${item.price}
       </span>
       <div>{item.name}</div>
@@ -123,7 +123,7 @@ function Card({ item, updateOrder }) {
         <button className="btn btn-circle btn-sm" onClick={handleDecrement}>
           <FaMinus />
         </button>
-        <div className="w-14 text-center">{quantity}</div>
+        <div className="w-14 text-center text-3xl">{quantity}</div>
         <button className="btn btn-circle btn-sm" onClick={handleIncrement}>
           <FaPlus />
         </button>
