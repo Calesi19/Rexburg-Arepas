@@ -101,7 +101,7 @@ export default function OrderCreation() {
     if (day === 2 || day === 4) {
       if (hour >= 12 && hour <= 18) {
         return (
-          <button className="btn btn-primary mt-8 px-10" onClick={addToCart}>
+          <button className="btn btn-primary mt-8 px-10">
             Place Order
           </button>
         );
