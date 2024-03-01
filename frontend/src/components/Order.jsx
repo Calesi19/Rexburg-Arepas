@@ -182,7 +182,7 @@ function Card({ arepa, toggleChicken, toggleSauce, addToCart }) {
   };
   return (
     <div className="flex h-full w-full flex-col justify-between gap-4 rounded-2xl bg-white p-8 shadow-md">
-      <div className="flex items-center gap-10">
+      <div className="flex flex-col lg:flex-row items-center gap-10">
         <img
           src={getImageSrc()}
           className="aspect-square h-[250px] w-[250px]"
@@ -203,8 +203,8 @@ function Card({ arepa, toggleChicken, toggleSauce, addToCart }) {
         </div>
       </div>
 
-      <div className="flex items-center justify-between">
-        <div className="flex flex-col">
+      <div className="flex flex-col lg:flex-row items-center justify-between">
+        <div className="flex flex-col w-full text-center lg:text-left my-8 lg:my-0">
           <div className="text-3xl">3 {arepa.name}</div>
           <div>${arepa.price.toFixed(2)}</div>
         </div>
