@@ -101,9 +101,7 @@ export default function OrderCreation() {
     if (day === 2 || day === 4) {
       if (hour >= 12 && hour <= 18) {
         return (
-          <button className="btn btn-primary mt-8 px-10">
-            Place Order
-          </button>
+          <button className="btn btn-primary mt-8 px-10">Place Order</button>
         );
       }
     }
@@ -132,7 +130,8 @@ export default function OrderCreation() {
     .filter((item) => item !== null);
 
   return (
-    <section className="w-full py-16 ">
+    <section className="w-full py-20 ">
+      <div className="container text-3xl mb-8">Build your order.</div>
       <div className="container flex flex-col md:flex-row">
         <div className="gap-1 md:w-1/2 md:gap-8">
           <Card
