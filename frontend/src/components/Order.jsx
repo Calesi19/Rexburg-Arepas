@@ -91,6 +91,30 @@ export default function OrderCreation() {
     }
   };
 
+  // Check if store is open or closed. If closed, disable the button.
+
+  const orderButton = () => {
+    const date = new Date();
+    const day = date.getDay();
+    const hour = date.getHours();
+
+    if (day === 2 || day === 4) {
+      if (hour >= 12 && hour <= 18) {
+        return (
+          <button className="btn btn-primary mt-8 px-10" onClick={addToCart}>
+            Place Order
+          </button>
+        );
+      }
+    }
+
+    return (
+      <button disabled className="btn btn-primary mt-8 px-10">
+        Not Open
+      </button>
+    );
+  };
+
   const listItems = Object.keys(order)
     .map((key) => {
       return order[key] > 0 ? (
@@ -99,7 +123,9 @@ export default function OrderCreation() {
             <span>{order[key] * 3} </span>
             <span>{key}</span>
           </div>
-          <button className="" onClick={() => removeFromCart(key)}><FaMinus/></button>
+          <button className="" onClick={() => removeFromCart(key)}>
+            <FaMinus />
+          </button>
         </div>
       ) : null;
     })
@@ -159,9 +185,7 @@ export default function OrderCreation() {
               be delivered. Payment due with cash or venmo.
             </div>
           </div>
-          <button disabled className="btn btn-primary mt-8 px-10">
-            Place Order
-          </button>
+          {orderButton()}
         </div>
       </div>
     </section>
@@ -182,7 +206,7 @@ function Card({ arepa, toggleChicken, toggleSauce, addToCart }) {
   };
   return (
     <div className="flex h-full w-full flex-col justify-between gap-4 rounded-2xl bg-white p-8 shadow-md">
-      <div className="flex flex-col lg:flex-row items-center gap-10">
+      <div className="flex flex-col items-center gap-10 lg:flex-row">
         <img
           src={getImageSrc()}
           className="aspect-square h-[250px] w-[250px]"
@@ -203,8 +227,8 @@ function Card({ arepa, toggleChicken, toggleSauce, addToCart }) {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-center justify-between">
-        <div className="flex flex-col w-full text-center lg:text-left my-8 lg:my-0">
+      <div className="flex flex-col items-center justify-between lg:flex-row">
+        <div className="my-8 flex w-full flex-col text-center lg:my-0 lg:text-left">
           <div className="text-3xl">3 {arepa.name}</div>
           <div>${arepa.price.toFixed(2)}</div>
         </div>
