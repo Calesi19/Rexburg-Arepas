@@ -1,57 +1,128 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { FaMinus } from "react-icons/fa";
 
 export default function OrderCreation() {
-  const [order, setOrder] = useState({});
+  const [order, setOrder] = useState({
+    "Plain Arepas": 0,
+    "Arepas with Chicken": 0,
+    "Arepas with Salsa": 0,
+    "Arepas with Chicken & Salsa": 0,
+  });
   const [total, setTotal] = useState(0);
+  const [arepa, setArepa] = useState({
+    name: "Plain Arepas",
+    price: 10,
+    chicken: false,
+    sauce: false,
+  });
 
-  const updateOrder = (item, quantity) => {
+  const updateOrder = (newItem) => {
     const newOrder = { ...order };
-    if (quantity > 0) {
-      newOrder[item.name] = { ...item, quantity };
-    } else {
-      delete newOrder[item.name];
-    }
-    setOrder(newOrder);
+    const newTotal = total + newItem.price;
 
-    const newTotal = Object.values(newOrder).reduce(
-      (acc, currentItem) => acc + currentItem.price * currentItem.quantity,
-      0,
-    );
+    if (newItem.chicken && newItem.sauce) {
+      newOrder["Arepas with Chicken & Salsa"] += 1;
+    } else if (newItem.chicken) {
+      newOrder["Arepas with Chicken"] += 1;
+    } else if (newItem.sauce) {
+      newOrder["Arepas with Salsa"] += 1;
+    } else {
+      newOrder["Plain Arepas"] += 1;
+    }
+
+    setOrder(newOrder);
     setTotal(newTotal);
   };
+
+  const toggleSauce = () => {
+    const newSauceState = !arepa.sauce;
+    const newName = newSauceState
+      ? arepa.chicken
+        ? "Arepas with Chicken & Salsa"
+        : "Arepas with Salsa"
+      : arepa.chicken
+        ? "Arepas with Chicken"
+        : "Plain Arepas";
+    setArepa({
+      ...arepa,
+      sauce: newSauceState,
+      price: arepa.price + (newSauceState ? 1 : -1),
+      name: newName,
+    });
+  };
+
+  const toggleChicken = () => {
+    const newChickenState = !arepa.chicken;
+    const newName = newChickenState
+      ? arepa.sauce
+        ? "Arepas with Chicken & Salsa"
+        : "Arepas with Chicken"
+      : arepa.sauce
+        ? "Arepas with Salsa"
+        : "Plain Arepas";
+    setArepa({
+      ...arepa,
+      chicken: newChickenState,
+      price: arepa.price + (newChickenState ? 2 : -2),
+      name: newName,
+    });
+  };
+
+  const addToCart = () => {
+    updateOrder(arepa);
+  };
+
+  const removeFromCart = (item) => {
+    if (order[item] > 0) {
+      const newOrder = { ...order };
+      newOrder[item] -= 1;
+      setOrder(newOrder);
+
+      const itemPrice = item.includes("Chicken & Salsa")
+        ? 13
+        : item.includes("Chicken")
+          ? 12
+          : item.includes("Salsa")
+            ? 11
+            : 10;
+      setTotal(total - itemPrice);
+    }
+  };
+
+  const listItems = Object.keys(order)
+    .map((key) => {
+      return order[key] > 0 ? (
+        <div className="flex justify-between">
+          <div>
+            <span>{order[key] * 3} </span>
+            <span>{key}</span>
+          </div>
+          <button className="" onClick={() => removeFromCart(key)}><FaMinus/></button>
+        </div>
+      ) : null;
+    })
+    .filter((item) => item !== null);
+
   return (
     <section className="w-full py-16 ">
       <div className="container flex flex-col md:flex-row">
-        <div className="grid grid-cols-2 gap-1 md:w-1/2 md:gap-8">
-          {MenuItems.map((item) => (
-            <Card key={item.name} item={item} updateOrder={updateOrder} />
-          ))}
+        <div className="gap-1 md:w-1/2 md:gap-8">
+          <Card
+            arepa={arepa}
+            toggleChicken={toggleChicken}
+            toggleSauce={toggleSauce}
+            addToCart={addToCart}
+          />
         </div>
-        <div className="mt-8 flex flex-col md:mt-0 md:w-1/2 md:p-10 ">
-          <h2 className="text-3xl">Order</h2>
-          <p className="my-6">
-            Ready to pick up in 20 minutes. Each order comes with 3 arepas.
-          </p>
-
-          <div className="my-4 flex flex-col justify-between rounded-lg border bg-base-100 p-8 ">
+        <div className="flex flex-col md:w-1/2 md:px-10 ">
+          <div className="my-2 flex flex-col justify-between rounded-lg border bg-base-100 p-8 ">
             <div
               id="cart"
-              className="flex min-h-[100px] flex-col justify-center"
+              className="flex min-h-[60px] flex-col justify-center"
             >
-              {Object.keys(order).length === 0 ? (
-                "Empty Cart"
-              ) : (
-                <ul>
-                  {Object.values(order).map((item) => (
-                    <li key={item.name}>
-                      x{item.quantity} {item.name}
-                    </li>
-                  ))}
-                </ul>
-              )}
+              {listItems}
             </div>
             <div className="mt-8 flex justify-between font-bold">
               <div>Total:</div>
@@ -61,7 +132,7 @@ export default function OrderCreation() {
           <div className="flex gap-8">
             <label className="form-control w-full max-w-xs">
               <div className="label">
-                <span className="label-text">What is your name?</span>
+                <span className="label-text">Name</span>
               </div>
               <input
                 type="text"
@@ -71,7 +142,7 @@ export default function OrderCreation() {
             </label>
             <label className="form-control w-full max-w-xs">
               <div className="label">
-                <span className="label-text">What is your phone number?</span>
+                <span className="label-text">Phone Number</span>
               </div>
               <input
                 type="text"
@@ -82,13 +153,12 @@ export default function OrderCreation() {
             </label>
           </div>
           <div className="mt-8 flex items-center gap-4">
-            <input type="checkbox" defaultChecked className="checkbox" />
+            <input type="checkbox" className="checkbox" />
             <div>
-              I am aware this is a "pick-up" service only and my order will not
-              be delivered.
+              I'm aware this is a "pick-up" service only and my order will not
+              be delivered. Payment due with cash or venmo.
             </div>
           </div>
-
           <button disabled className="btn btn-primary mt-8 px-10">
             Place Order
           </button>
@@ -98,59 +168,51 @@ export default function OrderCreation() {
   );
 }
 
-function Card({ item, updateOrder }) {
-  const [quantity, setQuantity] = useState(0);
-
-  const handleIncrement = () => {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-    updateOrder(item, newQuantity);
-  };
-
-  const handleDecrement = () => {
-    const newQuantity = Math.max(0, quantity - 1);
-    setQuantity(newQuantity);
-    updateOrder(item, newQuantity);
+function Card({ arepa, toggleChicken, toggleSauce, addToCart }) {
+  const getImageSrc = () => {
+    if (arepa.chicken && arepa.sauce) {
+      return "/arepa_chicken_salsa.png";
+    } else if (arepa.chicken) {
+      return "/arepa_chicken.png";
+    } else if (arepa.sauce) {
+      return "/arepa_salsa.png";
+    } else {
+      return "/arepa_plain.png";
+    }
   };
   return (
-    <div className="flex flex-col items-center justify-center gap-4 rounded-2xl bg-white p-8 shadow-md">
-      <img src={item.image} alt={item.name} />
-      <span className="absolute flex h-[50px] w-[75px] -translate-x-[75px] transform items-center justify-center rounded-lg bg-[#002E83] text-white font-black text-xl ">
-        ${item.price}
-      </span>
-      <div>{item.name}</div>
-      <div className="flex items-center">
-        <button className="btn btn-circle btn-sm" onClick={handleDecrement}>
-          <FaMinus />
-        </button>
-        <div className="w-14 text-center text-3xl">{quantity}</div>
-        <button className="btn btn-circle btn-sm" onClick={handleIncrement}>
-          <FaPlus />
+    <div className="flex h-full w-full flex-col justify-between gap-4 rounded-2xl bg-white p-8 shadow-md">
+      <div className="flex items-center gap-10">
+        <img
+          src={getImageSrc()}
+          className="aspect-square h-[250px] w-[250px]"
+        />
+        <div className="flex w-full flex-col gap-2">
+          <input
+            type="checkbox"
+            aria-label="Chicken"
+            className="btn"
+            onChange={toggleChicken}
+          />
+          <input
+            type="checkbox"
+            aria-label="Sauce"
+            className="btn"
+            onChange={toggleSauce}
+          />
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col">
+          <div className="text-3xl">3 {arepa.name}</div>
+          <div>${arepa.price.toFixed(2)}</div>
+        </div>
+
+        <button className="btn btn-neutral" onClick={addToCart}>
+          Add to Cart
         </button>
       </div>
     </div>
   );
 }
-
-const MenuItems = [
-  {
-    name: "Arepas with Chicken & Salsa",
-    price: 13,
-    image: "/arepa_chicken_salsa.png",
-  },
-  {
-    name: "Arepas with Chicken",
-    price: 12,
-    image: "/arepa_chicken.png",
-  },
-  {
-    name: "Arepas with Salsa",
-    price: 11,
-    image: "/arepa_salsa.png",
-  },
-  {
-    name: "Arepas Plain",
-    price: 10,
-    image: "/arepa_plain.png",
-  },
-];

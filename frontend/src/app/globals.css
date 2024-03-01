@@ -10,5 +10,6 @@
 
 body {
   min-height: 100vh;
-  background-image: repeating-linear-gradient(60deg, #fff 0, #eee, #fff 4px);
+  background-image: repeating-linear-gradient(60deg, #fff 0, #eee, #fff 3px);
 }
+

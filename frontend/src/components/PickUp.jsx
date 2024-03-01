@@ -1,6 +1,6 @@
 export default function PickUp() {
   return (
-    <section className="w-full bg-[#f8c600c1] py-16">
+    <section className="w-full bg-neutral py-16 text-white">
       <div className="container flex flex-col items-center md:flex-row md:gap-20">
         <div>
           <h2 className="text-3xl">Pick Up</h2>
@@ -22,7 +22,7 @@ export default function PickUp() {
             className="hidden md:block"
             href="https://maps.app.goo.gl/yKquo7RGUNBzkrYn6"
           >
-            <button className="btn btn-primary px-10">Open Map</button>
+            <button className="btn px-10">Open Map</button>
           </a>
         </div>
         <GoogleMapEmbed />
