@@ -5,15 +5,13 @@ from pydantic import BaseModel
 app = FastAPI()
 
 
-
 # Model
-
 class Order(BaseModel):
-    item_id: int
-    item_name: str
-    item_price: float
-    customer_name: str
-    customer_address: str
+    arepas_plain: int
+    arepas_chicken: int
+    arepas_chicken_sauce: int
+    arepas_sauce: int
+    order_comments: str
     customer_phone: str
 
 app.post("/predict")
