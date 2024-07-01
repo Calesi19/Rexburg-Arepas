@@ -1,9 +1,9 @@
 from fastapi import FastAPI 
 from pydantic import BaseModel
-
+from sqlalchemy.future import select
+from sqlalchemy.orm import Session
 
 app = FastAPI()
-
 
 # Model
 class Order(BaseModel):
@@ -14,20 +14,16 @@ class Order(BaseModel):
     order_comments: str
     customer_phone: str
 
-app.post("/predict")
+app.post("/orders")
 def create_order(order: Order):
     return {"message": "Order has been created", "order": order}
 
-
-
-
-
-
-
+app.get("/orders")
+def get_all_orders()
+    return {"message": "Orders has been created."}
 
 
 # Health Check
-
 app.get("/health")
 def health():
     return {"status": "ok"}
