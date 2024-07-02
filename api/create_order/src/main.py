@@ -8,7 +8,7 @@ def main(context):
 
     client = Client()
 
-    client.set_endpoint("https://cloud.appwrite.io/v1") # Your API Endpoint
+    client.set_endpoint("https://66844fab8359012b35ab.appwrite.global/") # Your API Endpoint
     client.set_project(os.environ["APPWRITE_FUNCTION_PROJECT_ID"]) # Your project ID
     client.set_key(os.environ["APPWRITE_API_KEY"]) # Your secret API key
 
@@ -36,3 +36,7 @@ def main(context):
 
     except Exception as e:
         return context.res.json({"error": str(e)})
+
+66844312001a2e693731
+
+66844312001a2e693731
