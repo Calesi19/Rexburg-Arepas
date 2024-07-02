@@ -1,32 +1,33 @@
 from appwrite.client import Client
 import os
 
-
-# This is your Appwrite function
-# It's executed each time we get a request
 def main(context):
-    # Why not try the Appwrite SDK?
-    #
-    # client = (
-    #     Client()
-    #     .set_endpoint("https://cloud.appwrite.io/v1")
-    #     .set_project(os.environ["APPWRITE_FUNCTION_PROJECT_ID"])
-    #     .set_key(os.environ["APPWRITE_API_KEY"])
-    # )
 
-    # You can log messages to the console
-    context.log("Hello, Logs!")
 
-    # If something goes wrong, log an error
-    context.error("Hello, Errors!")
+    # Connect to Appwrite Database
 
-    # The `ctx.req` object contains the request data
-    if context.req.method == "GET":
-        # Send a response with the res object helpers
-        # `ctx.res.send()` dispatches a string back to the client
-        return context.res.send("Hello, World!")
+    client = Client()
 
-    # `ctx.res.json()` is a handy helper for sending JSON
+    client.set_endpoint(os.getenv("https://cloud.appwrite.io/v1")) # Your API Endpoint
+    client.set_project(os.getenv("APPWRITE_PROJECT_ID")) # Your project ID
+    client.set_key(os.getenv("APPWRITE_API_KEY")) # Your secret API key
+
+    database = Database(client)
+    
+    # Get Orders From Database
+    try:
+        collection_id = os.getenv("APPWRITE_COLLECTION_ID")
+        database_id = os.getenv("APPWRITE_DATABASE_ID")
+
+        documents = database.list_documents(collection_id, database_id)
+
+        return context.res.json(documents)
+
+
+    except Exception as e:
+        return context.res.json({"error": str(e)})
+
+
     return context.res.json(
         {
             "motto": "Build like a team of hundreds_",
