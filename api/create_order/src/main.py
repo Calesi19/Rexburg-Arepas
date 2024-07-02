@@ -8,7 +8,7 @@ def main(context):
 
     client = Client()
 
-    client.set_endpoint("https://66844fab8359012b35ab.appwrite.global/") # Your API Endpoint
+    client.set_endpoint("https://66844fab8359012b35ab.appwrite.global/create_order") # Your API Endpoint
     client.set_project(os.environ["APPWRITE_FUNCTION_PROJECT_ID"]) # Your project ID
     client.set_key(os.environ["APPWRITE_API_KEY"]) # Your secret API key
 
