@@ -1,4 +1,5 @@
 from appwrite.client import Client
+from appwrite.services.database import Database
 import os
 
 def main(context):
