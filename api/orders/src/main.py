@@ -28,8 +28,6 @@ def main(context):
 
     if path == "/orders" and method == "GET":
         return get_orders(context, database)
-
-
     else:
         return context.res.json("Not Found", 404)
 
