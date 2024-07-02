@@ -1,9 +1,8 @@
 from appwrite.client import Client
-from appwrite.services.database import Database
+from appwrite.services.databases import Databases
 import os
 
 def main(context):
-
 
     # Connect to Appwrite Database
 
@@ -13,7 +12,7 @@ def main(context):
     client.set_project(os.getenv("APPWRITE_PROJECT_ID")) # Your project ID
     client.set_key(os.getenv("APPWRITE_API_KEY")) # Your secret API key
 
-    database = Database(client)
+    database = Databases(client)
     
     # Get Orders From Database
     try:
