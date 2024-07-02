@@ -8,18 +8,18 @@ def main(context):
 
     client = Client()
 
-    client.set_endpoint(os.getenv("https://cloud.appwrite.io/v1")) # Your API Endpoint
-    client.set_project('<APPWRITE_PROJECT_ID>') # Your project ID
-    client.set_key("<APPWRITE_API_KEY>") # Your secret API key
+    client.set_endpoint("https://cloud.appwrite.io/v1") # Your API Endpoint
+    client.set_project(os.environ["APPWRITE_PROJECT_ID"]) # Your project ID
+    client.set_key(os.environ["APPWRITE_API_KEY"]) # Your secret API key
 
     database = Databases(client)
 
-    context.log("Connected to Appwrite Database: " + "<APPWRITE_PROJECT_ID>")
+    context.log("Connected to Appwrite Database")
     
     # Get Orders From Database
     try:
-        collection_id = os.getenv("<APPWRITE_COLLECTION_ID>")
-        database_id = os.getenv("<APPWRITE_DATABASE_ID>")
+        collection_id = os.environ["APPWRITE_COLLECTION_ID"]
+        database_id = os.environ["APPWRITE_DATABASE_ID"]
 
         documents = database.list_documents(collection_id, database_id)
 
@@ -31,13 +31,3 @@ def main(context):
 
     except Exception as e:
         return context.res.json({"error": str(e)})
-
-
-    return context.res.json(
-        {
-            "motto": "Build like a team of hundreds_",
-            "learn": "https://appwrite.io/docs",
-            "connect": "https://appwrite.io/discord",
-            "getInspired": "https://builtwith.appwrite.io",
-        }
-    )
