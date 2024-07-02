@@ -9,20 +9,19 @@ def main(context):
     client = Client()
 
     client.set_endpoint(os.getenv("https://cloud.appwrite.io/v1")) # Your API Endpoint
-    client.set_project(os.getenv("APPWRITE_PROJECT_ID")) # Your project ID
-    client.set_key(os.getenv("APPWRITE_API_KEY")) # Your secret API key
+    client.set_project('<APPWRITE_PROJECT_ID>') # Your project ID
+    client.set_key("<APPWRITE_API_KEY>") # Your secret API key
 
     database = Databases(client)
 
-    context.log("Connected to Appwrite Database")
+    context.log("Connected to Appwrite Database: " + "<APPWRITE_PROJECT_ID>")
     
     # Get Orders From Database
     try:
-        collection_id = os.getenv("APPWRITE_COLLECTION_ID")
-        database_id = os.getenv("APPWRITE_DATABASE_ID")
+        collection_id = os.getenv("<APPWRITE_COLLECTION_ID>")
+        database_id = os.getenv("<APPWRITE_DATABASE_ID>")
 
         documents = database.list_documents(collection_id, database_id)
-
 
         context.log("Fetched Orders from Database")
         context.log(documents)
