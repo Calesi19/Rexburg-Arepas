@@ -22,13 +22,10 @@ app.get("/orders")
 def get_all_orders()
     return {"message": "Orders has been created."}
 
-
 # Health Check
 app.get("/health")
 def health():
     return {"status": "ok"}
-
-
 
 if __name__ == "__main__":
     import uvicorn
