@@ -37,6 +37,3 @@ def main(context):
     except Exception as e:
         return context.res.json({"error": str(e)})
 
-66844312001a2e693731
-
-66844312001a2e693731
