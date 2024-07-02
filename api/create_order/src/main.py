@@ -24,9 +24,9 @@ def main(context):
     # Get Orders From Database
     try:
         collection_id = os.environ["APPWRITE_COLLECTION_ID"]
-        database_id = os.environ["APPWRITE_DATABASE_ID"]
+        db_id = os.environ["APPWRITE_DATABASE_ID"]
 
-        documents = database.list_documents(collection_id, database_id)
+        documents = database.list_documents(collection_id, db_id)
 
         context.log("Fetched Orders from Database")
         context.log(documents)
