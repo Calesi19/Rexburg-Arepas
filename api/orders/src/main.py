@@ -28,6 +28,8 @@ def main(context):
 
     if path == "/orders" and method == "GET":
         return context.res.json(get_orders(context, database))
+    elif path == "/orders" and method == "POST":
+        return context.res.json(add_order(context, database))
     else:
         return context.res.json("Not Found", 404)
 
@@ -39,6 +41,20 @@ def get_orders(context, database):
         return documents
 
     except Exception as e:
-        context.log("Failed to get orders")
+        context.log("Failed to get orders: " + str(e))
         return {"error": str(e)}
 
+def add_order(context, database):
+    # Add a new order to the database
+    try:
+        order_data = json.loads(context.req.body)
+        document = database.create_document(
+            database_id=database_id,
+            collection_id=collection_id,
+            document_id='unique()',  # Automatically generate a unique ID
+            data=order_data
+        )
+        return document
+    except Exception as e:
+        context.log("Failed to add order: " + str(e))
+        return {"error": str(e)}
