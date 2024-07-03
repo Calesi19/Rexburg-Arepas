@@ -1,5 +1,6 @@
 from appwrite.client import Client
 from appwrite.services.databases import Databases
+from appwrite.id import ID
 import os
 import json
 
@@ -52,8 +53,16 @@ def add_order(context, database):
         document = database.create_document(
             database_id=database_id,
             collection_id=collection_id,
-            document_id='unique()',  # Automatically generate a unique ID
-            data=order_data
+            document_id=ID.unique(),  # Automatically generate a unique ID
+            data={
+                "plain": order_data["plain"],
+                "chicken": order_data["chicken"],
+                "sauce": order_data["sauce"],
+                "chicken_and_sauce": order_data["chicken_and_sauce"],
+                "comment": order_data["comment"],
+                "phone_number": order_data["phone_number"],
+                "customer_name": order_data["customer_name"]
+            }
         )
         return document
     except Exception as e:
