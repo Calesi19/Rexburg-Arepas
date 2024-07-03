@@ -27,18 +27,14 @@ def main(context):
     # Handle the request
 
     if path == "/orders" and method == "GET":
-        return get_orders(context, database)
+        return context.res.json(get_orders(context, database))
     else:
         return context.res.json("Not Found", 404)
 
 
 def get_orders(context, database):
-
-    context.log("Getting Orders")
     # Get Orders From Database
     try:
-        context.log(database_id)
-        context.log(collection_id)
         documents = database.list_documents(database_id, collection_id)
         return documents
 
