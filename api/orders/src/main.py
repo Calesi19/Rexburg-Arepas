@@ -55,16 +55,20 @@ def add_order(context, database):
             collection_id=collection_id,
             document_id=ID.unique(),  # Automatically generate a unique ID
             data={
-                "plain": order_data["plain"],
-                "chicken": order_data["chicken"],
-                "sauce": order_data["sauce"],
-                "chicken_and_sauce": order_data["chicken_and_sauce"],
-                "comment": order_data["comment"],
-                "phone_number": order_data["phone_number"],
-                "customer_name": order_data["customer_name"]
+                "plain": 2,
+                "chicken": 3,
+                "sauce": 4,
+                "chicken_and_sauce": 0,
+                "comment": "test",
+                "phone_number": "889382918",
+                "customer_name": "John Doe"
             }
         )
         return document
     except Exception as e:
         context.log("Failed to add order: " + str(e))
         return {"error": str(e)}
+
+
+
+
