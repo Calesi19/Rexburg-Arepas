@@ -54,7 +54,7 @@ def add_order(context, database):
             database_id=database_id,
             collection_id=collection_id,
             document_id=ID.unique(),  # Automatically generate a unique ID
-            data=order_data
+            data=json.dumps(order_data)
         )
         return {
             "document_id": document["$id"],
