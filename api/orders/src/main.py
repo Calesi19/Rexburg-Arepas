@@ -1,6 +1,7 @@
 from appwrite.client import Client
 from appwrite.services.databases import Databases
 import os
+import json
 
 collection_id = os.environ["APPWRITE_COLLECTION_ID"]
 database_id = os.environ["APPWRITE_DATABASE_ID"]
