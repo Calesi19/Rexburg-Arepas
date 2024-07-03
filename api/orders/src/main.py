@@ -49,7 +49,7 @@ def get_orders(context, database):
 def add_order(context, database):
     # Add a new order to the database
     try:
-        order_data = json.loads(context.req.body)
+        order_data = context.req.body
         document = database.create_document(
             database_id=database_id,
             collection_id=collection_id,
