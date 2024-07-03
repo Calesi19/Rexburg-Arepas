@@ -56,10 +56,8 @@ def add_order(context, database):
             document_id=ID.unique(),  # Automatically generate a unique ID
             data=json.dumps(order_data)
         )
-        return {
-            "document_id": document["$id"],
-            "data": document["$data"],
-        }
+        return document
+
     except Exception as e:
         context.log("Failed to add order: " + str(e))
         return {"error": str(e)}
