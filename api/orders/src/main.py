@@ -33,14 +33,16 @@ def main(context):
 
 
 def get_orders(context, database):
-   
+
+    context.log("Getting Orders")
     # Get Orders From Database
     try:
+        context.log(database_id)
+        context.log(collection_id)
         documents = database.list_documents(database_id, collection_id)
-
         return documents
 
-
     except Exception as e:
+        context.log("Failed to get orders")
         return {"error": str(e)}
 
