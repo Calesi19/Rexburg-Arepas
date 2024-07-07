@@ -62,6 +62,20 @@ def add_order(context, database):
         context.log("Failed to add order: " + str(e))
         return {"error": str(e)}
 
+def update_order(context, database):
+    # Update an existing order in the database
+    try:
+        order_data = context.req.body
+        document = database.update_document(
+            database_id=database_id,
+            collection_id=collection_id,
+            document_id=context.req.path_params["order_id"],
+            data=json.dumps(order_data)
+        )
+        return document
 
+    except Exception as e:
+        context.log("Failed to update order: " + str(e))
+        return {"error": str(e)}
 
 
