@@ -11,7 +11,7 @@ export default function Ingredients() {
         </div>
         <div className="grid grid-cols-3 justify-between gap-2 md:flex md:h-[200px] md:w-[60%]">
           <img
-            src="/cornmeal1.png"
+            src="/cornmeal.webp"
             className="aspect-square transform rounded-lg shadow-2xl transition duration-500 ease-in-out hover:scale-105"
           />
           <img
@@ -19,7 +19,7 @@ export default function Ingredients() {
             className="aspect-square transform rounded-lg shadow-2xl transition duration-500 ease-in-out hover:scale-105"
           />
           <img
-            src="/butter.jpg"
+            src="/butter.webp"
             className="aspect-square transform rounded-lg object-cover shadow-2xl transition duration-500 ease-in-out hover:scale-105"
           />
         </div>

@@ -3,7 +3,7 @@ export default function Hero() {
     <div className="hero py-10 md:py-20">
       <div className="container flex flex-col items-center justify-center gap-8 lg:flex-row-reverse lg:gap-20">
         <img
-          src="/arepa.jpeg"
+          src="/arepa.webp"
           className="aspect-square rounded-lg object-cover shadow-2xl md:max-w-sm"
         />
         <div className="">

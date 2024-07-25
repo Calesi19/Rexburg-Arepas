@@ -194,13 +194,13 @@ export default function OrderCreation() {
 function Card({ arepa, toggleChicken, toggleSauce, addToCart }) {
   const getImageSrc = () => {
     if (arepa.chicken && arepa.sauce) {
-      return "/arepa_chicken_salsa.png";
+      return "/arepa_chicken_salsa.webp";
     } else if (arepa.chicken) {
-      return "/arepa_chicken.png";
+      return "/arepa_chicken.webp";
     } else if (arepa.sauce) {
-      return "/arepa_salsa.png";
+      return "/arepa_salsa.webp";
     } else {
-      return "/arepa_plain.png";
+      return "/arepa_plain.webp";
     }
   };
   return (
