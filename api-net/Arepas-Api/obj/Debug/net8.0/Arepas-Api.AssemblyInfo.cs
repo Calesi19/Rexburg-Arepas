@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Arepas-Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a1a6698cdc2cfaf3bd8ee0ec37ea672a55fdb98")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8caeae6eadc5198a80ff8a6e43004bf19c783370")]
 [assembly: System.Reflection.AssemblyProductAttribute("Arepas-Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Arepas-Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
