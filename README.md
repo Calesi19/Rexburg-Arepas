@@ -26,3 +26,5 @@ npm run dev
 # Set up back-end
 
 The back-end is an "Appwrite"" project. You can go to the appwrite website and create a project.
+
+It also has a go API.
